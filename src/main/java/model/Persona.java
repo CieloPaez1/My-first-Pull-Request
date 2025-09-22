@@ -1,5 +1,7 @@
 package model;
 
+import excepcion.ExceptionPersona;
+
 import java.time.LocalDate;
 
 public class Persona {
@@ -19,24 +21,24 @@ public class Persona {
         this.peso = peso;
     }
 
-    public static Persona create(String nombre, String apellido, LocalDate fechaNacimiento, String dni, float altura, float peso) {
+    public static Persona factory(String nombre, String apellido, LocalDate fechaNacimiento, String dni, float altura, float peso) {
         if (nombre == null || nombre.isEmpty()) {
-            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío");
+            throw new ExceptionPersona("El nombre no puede ser nulo o vacío");
         }
         if (apellido == null || apellido.isEmpty()) {
-            throw new IllegalArgumentException("El apellido no puede ser nulo o vacío");
+            throw new ExceptionPersona("El apellido no puede ser nulo o vacío");
         }
         if (fechaNacimiento == null || fechaNacimiento.isAfter(LocalDate.now())) {
-            throw new IllegalArgumentException("La fecha de nacimiento no puede ser nula o en el futuro");
+            throw new ExceptionPersona("La fecha de nacimiento no puede ser nula o en el futuro");
         }
         if (dni == null || dni.isEmpty()) {
-            throw new IllegalArgumentException("El DNI no puede ser nulo o vacío");
+            throw new ExceptionPersona("El DNI no puede ser nulo o vacío");
         }
         if (altura <= 0) {
-            throw new IllegalArgumentException("La altura debe ser un valor positivo");
+            throw new ExceptionPersona("La altura debe ser un valor positivo");
         }
         if (peso <= 0) {
-            throw new IllegalArgumentException("El peso debe ser un valor positivo");
+            throw new ExceptionPersona("El peso debe ser un valor positivo");
         }
         return new Persona(nombre, apellido, fechaNacimiento, dni, altura, peso);
 
@@ -52,8 +54,7 @@ public class Persona {
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
-    public String getDni() {
-        return dni;
+    public String getDni() { return dni;
     }
     public float getAltura() {
         return altura;
