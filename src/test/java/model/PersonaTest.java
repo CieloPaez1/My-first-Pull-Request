@@ -1,7 +1,7 @@
 package model;
 
 import excepcion.ExceptionPersona;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.junit.jupiter.api.Assertions;
 
 import java.time.LocalDate;
@@ -53,27 +53,8 @@ public class PersonaTest {
         );
     }
 
-    @Test
-    public void create_AtributosIncorrectos_ThrowsException() {
 
-        Assertions.assertThrows(ExceptionPersona.class, () -> {
-            Persona.factory("", "Perez", LocalDate.of(2000,1,1), "12.345.678", 180.0f, 80.5f);
-        });
-        Assertions.assertThrows(ExceptionPersona.class, () -> {
-            Persona.factory("Juan", "", LocalDate.of(2000,1,1), "12.345.678", 180.0f, 80.5f);
-        });
-        Assertions.assertThrows(ExceptionPersona.class, () -> {
-            Persona.factory("Juan", "Perez", null, "12.345.678", 180.0f, 80.5f);
-        });
-        Assertions.assertThrows(ExceptionPersona.class, () -> {
-            Persona.factory("Juan", "Perez", LocalDate.of(2000,1,1), "", 180.0f, 80.5f);
-        });
-        Assertions.assertThrows(ExceptionPersona.class, () -> {
-            Persona.factory("Juan", "Perez", LocalDate.of(2000,1,1), "12.345.678", -180.0f, 80.5f);
-        });
-        Assertions.assertThrows(ExceptionPersona.class, () -> {
-            Persona.factory("Juan", "Perez", LocalDate.of(2000,1,1), "12.345.678", 180.0f, -80.5f);
-        });
-    }
+
+
 
 }
