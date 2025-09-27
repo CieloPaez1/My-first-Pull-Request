@@ -1,0 +1,16 @@
+
+target/
+*.jar
+*.class
+
+.idea
+*.iml
+*.ipr
+*.iws
+
+*.log
+*.bak
+*.swp
+
+Thumbs.db
+Desktop.ini
