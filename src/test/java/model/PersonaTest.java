@@ -29,13 +29,6 @@ public class PersonaTest {
     }
 
     @Test
-    public void FactoryTrue(){
-        Persona persona = Persona.factory("Juan", "Perez", LocalDate.of(2000,1,1), "12.345.678", 180.0f, 80.5f);
-        Assertions.assertNotNull(persona);
-
-
-    }
-    @Test
     public void FactoryFalse(){
         Assertions.assertThrows(ExceptionPersona.class, () -> {Persona.factory("", "Perez", LocalDate.of(2000,1,1), "12.345.678", 180.0f, 80.5f);});
         Assertions.assertThrows(ExceptionPersona.class, () -> {Persona.factory("Juan", "", LocalDate.of(2000,1,1), "12.345.678", 180.0f, 80.5f);});

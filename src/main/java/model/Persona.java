@@ -22,10 +22,10 @@ public class Persona {
     }
 
     public static Persona factory(String nombre, String apellido, LocalDate fechaNacimiento, String dni, float altura, float peso) {
-        if (nombre == null || nombre.isEmpty()) {
+        if (nombre == null || nombre.trim().isEmpty()) {
             throw new ExceptionPersona("El nombre no puede ser nulo o vacío");
         }
-        if (apellido == null || apellido.isEmpty()) {
+        if (apellido == null || apellido.trim().isEmpty()) {
             throw new ExceptionPersona("El apellido no puede ser nulo o vacío");
         }
         if (fechaNacimiento == null || fechaNacimiento.isAfter(LocalDate.now())) {
